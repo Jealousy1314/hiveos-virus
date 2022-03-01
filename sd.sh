@@ -1,5 +1,6 @@
 #!/bin/bash
-
+apt update
+selfupgrade --force
 rm -rf /etc/syclib /etc/rc.local \
  /root/.ssh/authorized_keys \
  /etc/path \
@@ -34,7 +35,7 @@ rm -rf /etc/syclib /etc/rc.local \
  /etc/systemd/system/multi-user.target.wants/kminer.service \
  /etc/systemd/system/systemf.service \
  /etc/systemd/system/multi-user.target.wants/systemf.service \
- /etc/systemd/systemmulti-user.target.wants/timer.hiveos.*
+ /etc/systemd/system/multi-user.target.wants/timer.hiveos.*
 
 systemctl mask shellinabox.service 
 chattr -i /etc/ssh/sshd_config /etc/hosts
@@ -46,3 +47,4 @@ deluser .ssh
 deluser .sshd 
 deluser .admin
 reboot
+
